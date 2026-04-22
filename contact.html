@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Decle Realty</title>
+  <meta name="description" content="Contact Paula Decle — call, email, or send a message. Award winning realtor in Trinidad &amp; Tobago.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { padding-top: 0; }
+
+    /* ── CONTACT HERO ── */
+    .contact-hero {
+      position: relative;
+      height: 48vh;
+      min-height: 360px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .contact-hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 65%;
+    }
+
+    .contact-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(18, 10, 4, 0.62) 0%,
+        rgba(18, 10, 4, 0.42) 50%,
+        rgba(18, 10, 4, 0.70) 100%
+      );
+    }
+
+    .contact-hero-content {
+      position: relative;
+      z-index: 5;
+      color: white;
+      padding: 0 24px;
+      animation: fadeUp 0.9s ease 0.2s both;
+    }
+
+    .contact-hero-content .eyebrow { color: var(--gold-light); }
+
+    .contact-hero-content h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(38px, 5.5vw, 68px);
+      font-weight: 300;
+      letter-spacing: 7px;
+      line-height: 1;
+    }
+
+    /* ── CONTACT BODY ── */
+    .contact-body {
+      background: var(--cream);
+      padding: 96px 72px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 88px;
+      align-items: start;
+    }
+
+    /* ── INFO COLUMN ── */
+    .contact-info h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 3vw, 40px);
+      font-weight: 400;
+      color: var(--dark-brown);
+      margin-bottom: 8px;
+    }
+
+    .intro-text {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--deep);
+      line-height: 1.85;
+      margin-bottom: 44px;
+      opacity: 0.85;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      margin-bottom: 30px;
+    }
+
+    .contact-item-icon {
+      width: 42px;
+      height: 42px;
+      flex-shrink: 0;
+      background: var(--cream-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      margin-top: 2px;
+    }
+
+    .contact-item-text label {
+      display: block;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--blush);
+      margin-bottom: 5px;
+    }
+
+    .contact-item-text a,
+    .contact-item-text span {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--deep);
+      text-decoration: none;
+      transition: color 0.25s;
+      letter-spacing: 0.3px;
+    }
+
+    .contact-item-text a:hover { color: var(--blush); }
+
+    /* Social buttons */
+    .social-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 44px;
+      padding-top: 36px;
+      border-top: 1px solid rgba(200,160,138,0.25);
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--dark-brown);
+      border: 1px solid rgba(200,160,138,0.5);
+      padding: 12px 22px;
+      text-decoration: none;
+      transition: background 0.25s, color 0.25s, border-color 0.25s;
+    }
+
+    .social-btn:hover {
+      background: var(--blush);
+      color: white;
+      border-color: var(--blush);
+    }
+
+    .social-icon {
+      font-size: 14px;
+    }
+
+    /* ── FORM COLUMN ── */
+    .contact-form h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 3vw, 40px);
+      font-weight: 400;
+      color: var(--dark-brown);
+      margin-bottom: 8px;
+    }
+
+    .form-group {
+      margin-bottom: 22px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--blush);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 13px 16px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--deep);
+      background: white;
+      border: 1px solid rgba(200, 160, 138, 0.28);
+      outline: none;
+      transition: border-color 0.25s, box-shadow 0.25s;
+      -webkit-appearance: none;
+      border-radius: 0;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--blush);
+      box-shadow: 0 0 0 3px rgba(200, 160, 138, 0.12);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(58,40,24,0.3);
+      font-style: italic;
+    }
+
+    .form-group textarea {
+      min-height: 148px;
+      resize: vertical;
+      line-height: 1.7;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 16px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: white;
+      background: var(--blush);
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+      margin-top: 8px;
+    }
+
+    .form-submit:hover {
+      background: var(--dark-brown);
+      transform: translateY(-1px);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .contact-body {
+        grid-template-columns: 1fr;
+        gap: 56px;
+        padding: 64px 36px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .contact-body { padding: 48px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled" id="navbar">
+    <a href="index.html" class="nav-logo">Decle Realty</a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- CONTACT HERO -->
+  <section class="contact-hero">
+    <img class="contact-hero-img" src="jason-dent-w3eFhqXjkZE-unsplash.jpg" alt="City skyline">
+    <div class="contact-hero-overlay"></div>
+    <div class="contact-hero-content">
+      <span class="eyebrow">Reach Out</span>
+      <h1>Get In Touch</h1>
+      <div class="gold-divider center"></div>
+    </div>
+  </section>
+
+  <!-- CONTACT BODY -->
+  <section class="contact-body">
+
+    <!-- INFO -->
+    <div class="contact-info">
+      <span class="eyebrow">Contact Information</span>
+      <h2>Let's Start the Conversation</h2>
+      <div class="gold-divider"></div>
+      <p class="intro-text">Ready to take the next step in your real estate journey? Paula is here to answer any questions and help you navigate Trinidad &amp; Tobago's property market with confidence.</p>
+
+      <div class="contact-item">
+        <div class="contact-item-icon">📞</div>
+        <div class="contact-item-text">
+          <label>Phone &amp; Mobile</label>
+          <a href="tel:+18686816137">+1 868-681-6137</a>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-item-icon">✉️</div>
+        <div class="contact-item-text">
+          <label>Email</label>
+          <a href="mailto:paula@declerealty.com">paula@declerealty.com</a>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-item-icon">📸</div>
+        <div class="contact-item-text">
+          <label>Instagram</label>
+          <a href="https://www.instagram.com/pauladeclerealty/" target="_blank" rel="noopener">@pauladeclerealty</a>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-item-icon">👤</div>
+        <div class="contact-item-text">
+          <label>Facebook</label>
+          <a href="https://www.facebook.com/declerealty" target="_blank" rel="noopener">Decle Realty</a>
+        </div>
+      </div>
+
+      <div class="social-row">
+        <a href="https://www.instagram.com/pauladeclerealty/" target="_blank" rel="noopener" class="social-btn">
+          <span class="social-icon">📸</span> Instagram
+        </a>
+        <a href="https://www.facebook.com/declerealty" target="_blank" rel="noopener" class="social-btn">
+          <span class="social-icon">👤</span> Facebook
+        </a>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="contact-form">
+      <span class="eyebrow">Send a Message</span>
+      <h2>How Can Paula Help?</h2>
+      <div class="gold-divider"></div>
+
+      <form id="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number <span style="font-weight:400;opacity:0.6;">(optional)</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="+1 868-000-0000">
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell Paula about your real estate needs — buying, selling, or just exploring..." required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Message</button>
+      </form>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Decle Realty</div>
+    <span class="footer-copy">© 2025 Decle Realty. All rights reserved.</span>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/pauladeclerealty/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/declerealty" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('nav-links').classList.toggle('open');
+    }
+
+    document.addEventListener('click', (e) => {
+      const links = document.getElementById('nav-links');
+      const hamburger = document.getElementById('hamburger');
+      if (!links.contains(e.target) && !hamburger.contains(e.target)) {
+        links.classList.remove('open');
+      }
+    });
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      const name    = document.getElementById('name').value;
+      const email   = document.getElementById('email').value;
+      const phone   = document.getElementById('phone').value;
+      const message = document.getElementById('message').value;
+
+      const subject = encodeURIComponent('Inquiry from ' + name + ' — Decle Realty Website');
+      const body    = encodeURIComponent(
+        'Name: ' + name + '\n' +
+        'Email: ' + email + '\n' +
+        (phone ? 'Phone: ' + phone + '\n' : '') +
+        '\nMessage:\n' + message
+      );
+
+      window.location.href = 'mailto:paula@declerealty.com?subject=' + subject + '&body=' + body;
+    }
+  </script>
+</body>
+</html>

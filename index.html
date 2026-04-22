@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decle Realty — Luxury Real Estate | Trinidad &amp; Tobago</title>
+  <meta name="description" content="Decle Realty — Helping buyers find their dream home and sellers get top dollar for their property since 2006. Award winning realtor in Trinidad &amp; Tobago.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { overflow-x: hidden; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100dvh;
+      min-height: 600px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        170deg,
+        rgba(18, 10, 4, 0.50) 0%,
+        rgba(18, 10, 4, 0.12) 38%,
+        rgba(18, 10, 4, 0.18) 62%,
+        rgba(18, 10, 4, 0.62) 100%
+      );
+    }
+
+    /* ── HERO CONTENT ── */
+    .hero-content {
+      position: relative;
+      z-index: 5;
+      text-align: center;
+      color: white;
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Raleway', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 7px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.55);
+      margin-bottom: 22px;
+      animation: fadeUp 1s ease 0.4s both;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(54px, 9vw, 116px);
+      font-weight: 300;
+      letter-spacing: clamp(8px, 1.5vw, 18px);
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 1;
+      animation: fadeUp 1.1s ease 0.6s both;
+    }
+
+    .hero-divider {
+      width: 56px;
+      height: 1px;
+      background: var(--gold);
+      margin: 28px 0;
+      animation: fadeIn 1s ease 0.95s both;
+    }
+
+    .hero-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(15px, 2vw, 19px);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.68);
+      letter-spacing: 1.5px;
+      animation: fadeUp 1s ease 1.1s both;
+    }
+
+    /* ── SCROLL HINT ── */
+    .scroll-hint {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      animation: fadeIn 1.4s ease 1.8s both;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 52px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.55), transparent);
+      animation: scrollPulse 2.8s ease-in-out infinite;
+    }
+
+    .scroll-text {
+      font-family: 'Raleway', sans-serif;
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    /* ── EDGE DECORATION ── */
+    .hero-corner {
+      position: absolute;
+      z-index: 5;
+      animation: fadeIn 1.2s ease 1.5s both;
+    }
+
+    .hero-corner.tl {
+      top: calc(var(--nav-height) + 24px);
+      left: 32px;
+      width: 48px;
+      height: 48px;
+      border-top: 1px solid rgba(255,255,255,0.25);
+      border-left: 1px solid rgba(255,255,255,0.25);
+    }
+
+    .hero-corner.tr {
+      top: calc(var(--nav-height) + 24px);
+      right: 32px;
+      width: 48px;
+      height: 48px;
+      border-top: 1px solid rgba(255,255,255,0.25);
+      border-right: 1px solid rgba(255,255,255,0.25);
+    }
+
+    .hero-corner.bl {
+      bottom: 80px;
+      left: 32px;
+      width: 48px;
+      height: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+      border-left: 1px solid rgba(255,255,255,0.25);
+    }
+
+    .hero-corner.br {
+      bottom: 80px;
+      right: 32px;
+      width: 48px;
+      height: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+      border-right: 1px solid rgba(255,255,255,0.25);
+    }
+
+    @media (max-width: 600px) {
+      .hero-corner { display: none; }
+      .hero-title { letter-spacing: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">Decle Realty</a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="7578547-uhd_3840_2160_30fps (1).mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+
+    <!-- Corner decorations -->
+    <div class="hero-corner tl"></div>
+    <div class="hero-corner tr"></div>
+    <div class="hero-corner bl"></div>
+    <div class="hero-corner br"></div>
+
+    <div class="hero-content">
+      <span class="hero-eyebrow">Trinidad &amp; Tobago</span>
+      <h1 class="hero-title">Decle Realty</h1>
+      <div class="hero-divider"></div>
+      <p class="hero-tagline">Finding your dream home since 2006</p>
+    </div>
+
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      <span class="scroll-text">Explore</span>
+    </div>
+  </section>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    function toggleMenu() {
+      const links = document.getElementById('nav-links');
+      links.classList.toggle('open');
+    }
+
+    document.addEventListener('click', (e) => {
+      const links = document.getElementById('nav-links');
+      const hamburger = document.getElementById('hamburger');
+      if (!links.contains(e.target) && !hamburger.contains(e.target)) {
+        links.classList.remove('open');
+      }
+    });
+  </script>
+</body>
+</html>
