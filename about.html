@@ -9,55 +9,76 @@
   <style>
     body { padding-top: 0; }
 
-    /* ── ABOUT HERO ── */
-    .about-hero {
-      position: relative;
-      height: 68vh;
-      min-height: 500px;
-      overflow: hidden;
+    /* ── PROFILE HERO ── */
+    .profile-hero {
+      background: var(--dark-brown);
+      padding: 110px 48px 88px;
       display: flex;
-      align-items: flex-end;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
 
-    .about-hero-img {
+    .profile-hero::before {
+      content: '';
       position: absolute;
       inset: 0;
+      background: radial-gradient(ellipse at center top, rgba(212,165,116,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .profile-avatar {
+      width: 378px;
+      height: 378px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--gold);
+      box-shadow: 0 0 0 8px rgba(212,165,116,0.15), 0 20px 60px rgba(0,0,0,0.35);
+      margin-bottom: 32px;
+      flex-shrink: 0;
+      animation: fadeIn 0.9s ease 0.2s both;
+    }
+
+    .profile-avatar img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 15%;
+      object-position: center 10%;
     }
 
-    .about-hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(18, 10, 4, 0.55) 0%,
-        rgba(18, 10, 4, 0.05) 45%,
-        rgba(18, 10, 4, 0.75) 100%
-      );
+    .profile-hero .eyebrow {
+      color: var(--gold-light);
+      animation: fadeUp 0.8s ease 0.4s both;
     }
 
-    .about-hero-content {
-      position: relative;
-      z-index: 5;
-      color: white;
-      padding: 0 72px 64px;
-      animation: fadeUp 0.9s ease 0.2s both;
-    }
-
-    .about-hero-content .eyebrow { color: var(--gold-light); }
-
-    .about-hero-content h1 {
+    .profile-hero h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(40px, 6vw, 72px);
+      font-size: clamp(38px, 5vw, 64px);
       font-weight: 300;
       letter-spacing: 5px;
-      line-height: 1.08;
+      color: var(--white);
+      line-height: 1;
+      animation: fadeUp 0.8s ease 0.5s both;
     }
 
-    .about-hero-content .gold-divider { margin-top: 20px; }
+    .profile-hero .gold-divider {
+      margin: 24px auto;
+      animation: fadeIn 0.8s ease 0.7s both;
+    }
+
+    .profile-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(15px, 2vw, 19px);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.62);
+      max-width: 520px;
+      line-height: 1.75;
+      letter-spacing: 0.5px;
+      animation: fadeUp 0.8s ease 0.85s both;
+    }
 
     /* ── BIO SECTION ── */
     .bio {
@@ -235,7 +256,7 @@
         gap: 48px;
         padding: 72px 36px;
       }
-      .about-hero-content { padding: 0 36px 48px; }
+
       .gallery { padding: 64px 36px; }
       .gallery-grid {
         grid-template-columns: 1fr 1fr;
@@ -279,15 +300,15 @@
     </button>
   </nav>
 
-  <!-- ABOUT HERO -->
-  <section class="about-hero">
-    <img class="about-hero-img" src="Paula Decle Image.jpg" alt="Paula Decle — Realtor">
-    <div class="about-hero-overlay"></div>
-    <div class="about-hero-content">
-      <span class="eyebrow">Meet Your Agent</span>
-      <h1>Paula Decle</h1>
-      <div class="gold-divider"></div>
+  <!-- PROFILE HERO -->
+  <section class="profile-hero">
+    <div class="profile-avatar">
+      <img src="Paula Decle Image.jpg" alt="Paula Decle — Realtor">
     </div>
+    <span class="eyebrow">Meet Your Agent</span>
+    <h1>Paula Decle</h1>
+    <div class="gold-divider center"></div>
+    <p class="profile-tagline">Award winning realtor with over 20 years of experience helping buyers find their dream home and sellers get top dollar — serving Trinidad &amp; Tobago since 2006.</p>
   </section>
 
   <!-- BIO -->
