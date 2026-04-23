@@ -175,10 +175,17 @@
       letter-spacing: 4px;
     }
 
-    .gallery-grid {
+    .gallery-layout {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .gallery-images {
+      flex: 2;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: 280px 280px;
+      grid-template-columns: 1fr 1fr;
+      grid-auto-rows: 190px;
       gap: 14px;
     }
 
@@ -187,10 +194,8 @@
       position: relative;
     }
 
-    /* First item spans 2 cols + 2 rows — the hero image */
-    .gallery-item:nth-child(1) {
+    .gallery-item.wide {
       grid-column: 1 / 3;
-      grid-row: 1 / 3;
     }
 
     .gallery-item img {
@@ -202,6 +207,48 @@
     }
 
     .gallery-item:hover img { transform: scale(1.05); }
+
+    /* Video column — height = 3 rows × 190px + 2 gaps × 14px = 598px */
+    .gallery-video-col {
+      flex: 0 0 28%;
+      height: 598px;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid var(--gold);
+      box-shadow: 0 0 0 6px rgba(212,165,116,0.12);
+    }
+
+    .gallery-video-col video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .walkthrough-label {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      z-index: 2;
+      padding: 20px 16px 44px;
+      background: linear-gradient(to bottom, rgba(18,10,4,0.78) 0%, transparent 100%);
+      text-align: center;
+    }
+
+    .walkthrough-label span {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .walkthrough-label .wt-divider {
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+      margin: 8px auto 0;
+    }
 
     /* ── CTA ── */
     .cta {
@@ -251,37 +298,16 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
-      .bio {
-        grid-template-columns: 1fr;
-        gap: 48px;
-        padding: 72px 36px;
-      }
-
+      .bio { grid-template-columns: 1fr; gap: 48px; padding: 72px 36px; }
       .gallery { padding: 64px 36px; }
-      .gallery-grid {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
-      }
-      .gallery-item:nth-child(1) {
-        grid-column: 1 / 3;
-        grid-row: auto;
-        height: 300px;
-      }
-      .gallery-item { height: 220px; }
+      .gallery-layout { flex-direction: column; }
+      .gallery-video-col { min-height: 320px; }
     }
 
     @media (max-width: 600px) {
       .gallery { padding: 48px 20px; }
-      .gallery-grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-      }
-      .gallery-item,
-      .gallery-item:nth-child(1) {
-        grid-column: auto;
-        grid-row: auto;
-        height: 220px;
-      }
+      .gallery-images { grid-template-columns: 1fr; }
+      .gallery-item.wide { grid-column: auto; }
     }
   </style>
 </head>
@@ -348,22 +374,39 @@
       <h2>Exceptional Properties</h2>
       <div class="gold-divider center"></div>
     </div>
-    <div class="gallery-grid">
-      <div class="gallery-item">
-        <img src="house images.jpg" alt="Luxury pool home with blue sky">
+    <div class="gallery-layout">
+
+      <!-- Left 2/3: image grid -->
+      <div class="gallery-images">
+        <div class="gallery-item wide">
+          <img src="house images.jpg" alt="Luxury pool home with blue sky">
+        </div>
+        <div class="gallery-item">
+          <img src="francesca-tosolini-tHkJAMcO3QE-unsplash.jpg" alt="Bright modern living room">
+        </div>
+        <div class="gallery-item">
+          <img src="house images2.jpg" alt="Home with covered pool">
+        </div>
+        <div class="gallery-item">
+          <img src="lotus-design-n-print-wRzBarqn3hs-unsplash.jpg" alt="Contemporary interior">
+        </div>
+        <div class="gallery-item">
+          <img src="steven-ungermann-ydudT6TqqmI-unsplash.jpg" alt="Elegant styled bedroom">
+        </div>
       </div>
-      <div class="gallery-item">
-        <img src="francesca-tosolini-tHkJAMcO3QE-unsplash.jpg" alt="Bright modern living room">
+
+      <!-- Right 1/3: walkthrough video -->
+      <div class="gallery-video-col">
+        <div class="walkthrough-label">
+          <span>Walkthrough</span>
+          <div class="wt-divider"></div>
+        </div>
+        <video autoplay muted loop playsinline>
+          <source src="property-video.mov" type="video/mp4">
+          <source src="property-video.mov" type="video/quicktime">
+        </video>
       </div>
-      <div class="gallery-item">
-        <img src="house images2.jpg" alt="Home with covered pool">
-      </div>
-      <div class="gallery-item">
-        <img src="lotus-design-n-print-wRzBarqn3hs-unsplash.jpg" alt="Contemporary interior">
-      </div>
-      <div class="gallery-item">
-        <img src="steven-ungermann-ydudT6TqqmI-unsplash.jpg" alt="Elegant styled bedroom">
-      </div>
+
     </div>
   </section>
 
