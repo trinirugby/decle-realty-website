@@ -225,6 +225,12 @@
       display: block;
     }
 
+    #gallery-video::-webkit-media-controls { display: none !important; }
+    #gallery-video::-webkit-media-controls-panel { display: none !important; }
+    #gallery-video::-webkit-media-controls-play-button { display: none !important; }
+    #gallery-video::-webkit-media-controls-start-playback-button { display: none !important; }
+    #gallery-video::-webkit-media-controls-overlay-play-button { display: none !important; }
+
     .walkthrough-label {
       position: absolute;
       top: 0; left: 0; right: 0;
@@ -447,6 +453,7 @@
         galleryVideo.play().catch(() => {});
       }
     }
+    tryPlayGallery();
     document.addEventListener('DOMContentLoaded', tryPlayGallery);
     document.addEventListener('touchstart', tryPlayGallery, { once: true, passive: true });
     galleryVideo && galleryVideo.addEventListener('suspend', tryPlayGallery);
