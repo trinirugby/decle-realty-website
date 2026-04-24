@@ -215,7 +215,7 @@
 
   <!-- HERO -->
   <section class="hero">
-    <video class="hero-video" autoplay muted loop playsinline>
+    <video class="hero-video" id="hero-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
       <source src="background.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
@@ -246,6 +246,16 @@
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 60);
     }, { passive: true });
+
+    const heroVideo = document.getElementById('hero-video');
+    function tryPlay() {
+      if (heroVideo && heroVideo.paused) {
+        heroVideo.play().catch(() => {});
+      }
+    }
+    document.addEventListener('DOMContentLoaded', tryPlay);
+    document.addEventListener('touchstart', tryPlay, { once: true, passive: true });
+    heroVideo && heroVideo.addEventListener('suspend', tryPlay);
 
     function toggleMenu() {
       const links = document.getElementById('nav-links');

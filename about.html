@@ -401,7 +401,7 @@
           <span>Walkthrough</span>
           <div class="wt-divider"></div>
         </div>
-        <video autoplay muted loop playsinline>
+        <video id="gallery-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
           <source src="property-video.mov" type="video/mp4">
           <source src="property-video.mov" type="video/quicktime">
         </video>
@@ -440,6 +440,16 @@
         links.classList.remove('open');
       }
     });
-  </script>
+
+    const galleryVideo = document.getElementById('gallery-video');
+    function tryPlayGallery() {
+      if (galleryVideo && galleryVideo.paused) {
+        galleryVideo.play().catch(() => {});
+      }
+    }
+    document.addEventListener('DOMContentLoaded', tryPlayGallery);
+    document.addEventListener('touchstart', tryPlayGallery, { once: true, passive: true });
+    galleryVideo && galleryVideo.addEventListener('suspend', tryPlayGallery);
+</script>
 </body>
 </html>
