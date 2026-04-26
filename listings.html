@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listings — Decle Realty</title>
+  <meta name="description" content="Browse all properties for sale and rent in Trinidad &amp; Tobago listed by Paula Decle — search, filter, and sort 130+ properties.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { padding-top: 0; }
+
+    /* ── HERO ── */
+    .listings-hero {
+      background: var(--dark-brown);
+      padding: 130px 48px 76px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .listings-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center top, rgba(212,165,116,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .listings-hero .eyebrow {
+      color: var(--gold-light);
+      animation: fadeUp 0.8s ease 0.3s both;
+      position: relative;
+    }
+
+    .listings-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 5.5vw, 68px);
+      font-weight: 300;
+      letter-spacing: 6px;
+      color: var(--white);
+      line-height: 1;
+      animation: fadeUp 0.8s ease 0.45s both;
+      position: relative;
+    }
+
+    .listings-hero .gold-divider {
+      margin: 24px auto;
+      animation: fadeIn 0.8s ease 0.65s both;
+    }
+
+    .listings-hero .tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(15px, 2vw, 19px);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.62);
+      max-width: 560px;
+      line-height: 1.75;
+      animation: fadeUp 0.8s ease 0.8s both;
+      position: relative;
+    }
+
+    /* ── FILTER BAR ── */
+    .filters {
+      background: white;
+      border-bottom: 1px solid rgba(212,165,116,0.25);
+      padding: 22px 56px;
+      position: sticky;
+      top: var(--nav-height);
+      z-index: 50;
+      box-shadow: 0 2px 18px rgba(58,40,24,0.05);
+    }
+
+    .filters-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .search-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 16px;
+      font-size: 14px;
+      color: var(--blush);
+      pointer-events: none;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 13px 18px 13px 42px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--deep);
+      background: var(--cream);
+      border: 1px solid rgba(200,160,138,0.3);
+      outline: none;
+      transition: border-color 0.25s, box-shadow 0.25s;
+      -webkit-appearance: none;
+      border-radius: 0;
+    }
+
+    .search-input:focus {
+      border-color: var(--blush);
+      box-shadow: 0 0 0 3px rgba(200,160,138,0.12);
+    }
+
+    .search-input::placeholder {
+      color: rgba(58,40,24,0.4);
+      font-style: italic;
+    }
+
+    .type-chips {
+      display: inline-flex;
+      gap: 0;
+      border: 1px solid rgba(200,160,138,0.4);
+    }
+
+    .type-chip {
+      font-family: 'Raleway', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--dark-brown);
+      background: white;
+      padding: 13px 18px;
+      cursor: pointer;
+      border: none;
+      border-right: 1px solid rgba(200,160,138,0.4);
+      transition: background 0.22s, color 0.22s;
+    }
+
+    .type-chip:last-child { border-right: none; }
+    .type-chip:hover { background: var(--cream); }
+    .type-chip.active {
+      background: var(--blush);
+      color: white;
+    }
+
+    .sort-select {
+      font-family: 'Raleway', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      color: var(--dark-brown);
+      background: white;
+      border: 1px solid rgba(200,160,138,0.4);
+      padding: 13px 36px 13px 16px;
+      cursor: pointer;
+      outline: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-image: linear-gradient(45deg, transparent 50%, var(--blush) 50%), linear-gradient(135deg, var(--blush) 50%, transparent 50%);
+      background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%;
+      background-size: 5px 5px;
+      background-repeat: no-repeat;
+      transition: border-color 0.22s;
+    }
+
+    .sort-select:hover { border-color: var(--blush); }
+
+    .avail-toggle {
+      max-width: 1280px;
+      margin: 14px auto 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      color: var(--dark-brown);
+      cursor: pointer;
+      user-select: none;
+    }
+    .avail-toggle input { display: none; }
+    .avail-track {
+      width: 34px;
+      height: 18px;
+      background: rgba(200,160,138,0.3);
+      border-radius: 18px;
+      position: relative;
+      transition: background 0.25s;
+    }
+    .avail-track::after {
+      content: '';
+      position: absolute;
+      top: 2px; left: 2px;
+      width: 14px; height: 14px;
+      background: white;
+      border-radius: 50%;
+      transition: transform 0.25s;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    }
+    .avail-toggle input:checked + .avail-track { background: var(--blush); }
+    .avail-toggle input:checked + .avail-track::after { transform: translateX(16px); }
+
+    .results-count {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 22px 56px 0;
+      font-family: 'Raleway', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--blush);
+    }
+
+    /* ── GRID ── */
+    .listings-section {
+      background: var(--cream);
+      padding: 28px 56px 100px;
+    }
+
+    .listings-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .empty-state {
+      max-width: 1280px;
+      margin: 60px auto;
+      padding: 60px 24px;
+      text-align: center;
+      color: var(--dark-brown);
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .empty-state h3 {
+      font-size: 28px;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+
+    .empty-state p {
+      font-family: 'Raleway', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--deep);
+      opacity: 0.7;
+    }
+
+    /* ── CARD ── */
+    .listing-card {
+      background: white;
+      box-shadow: 0 2px 22px rgba(58, 40, 24, 0.06);
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.35s ease, transform 0.35s ease;
+      overflow: hidden;
+    }
+
+    .listing-card:hover {
+      box-shadow: 0 14px 40px rgba(58, 40, 24, 0.13);
+      transform: translateY(-3px);
+    }
+
+    .listing-photo {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      position: relative;
+      background: var(--cream-dark);
+    }
+
+    .listing-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+
+    .listing-card:hover .listing-photo img { transform: scale(1.06); }
+
+    .listing-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: white;
+      background: rgba(58, 40, 24, 0.85);
+      padding: 7px 12px;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    .listing-tag.sale { background: rgba(90, 62, 46, 0.92); }
+    .listing-tag.rent { background: rgba(200, 160, 138, 0.95); }
+    .listing-tag.both { background: rgba(212, 165, 116, 0.95); color: var(--deep); }
+    .listing-tag.rented,
+    .listing-tag.sold {
+      top: auto;
+      bottom: 14px;
+      left: 14px;
+      font-size: 11px;
+      letter-spacing: 4px;
+      padding: 9px 16px;
+      background: rgba(58, 40, 24, 0.92);
+      color: white;
+    }
+    .listing-card.unavailable .listing-photo img { filter: grayscale(40%) brightness(0.85); }
+    .listing-card.unavailable .listing-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(18,10,4,0.18);
+      pointer-events: none;
+    }
+
+    .listing-body {
+      padding: 24px 26px 30px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      border-left: 2px solid var(--gold);
+    }
+
+    .listing-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px;
+      font-weight: 500;
+      color: var(--dark-brown);
+      line-height: 1.3;
+      letter-spacing: 0.3px;
+    }
+
+    .listing-body .gold-divider {
+      margin: 12px 0 14px;
+    }
+
+    .listing-blurb {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--deep);
+      opacity: 0.78;
+      flex: 1;
+      margin-bottom: 18px;
+    }
+
+    .listing-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--blush);
+      letter-spacing: 0.4px;
+      margin-bottom: 18px;
+      line-height: 1.3;
+    }
+
+    .listing-btn {
+      display: inline-block;
+      align-self: flex-start;
+      font-family: 'Raleway', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--dark-brown);
+      border: 1px solid var(--blush);
+      padding: 10px 24px;
+      text-decoration: none;
+      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .listing-btn:hover {
+      background: var(--blush);
+      color: white;
+      border-color: var(--blush);
+    }
+
+    /* ── BOTTOM CTA ── */
+    .listings-cta {
+      max-width: 1280px;
+      margin: 76px auto 0;
+      padding: 56px 40px;
+      background: var(--cream-dark);
+      text-align: center;
+      border-top: 1px solid rgba(212,165,116,0.3);
+      border-bottom: 1px solid rgba(212,165,116,0.3);
+    }
+
+    .listings-cta h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 400;
+      color: var(--dark-brown);
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+
+    .listings-cta p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--deep);
+      opacity: 0.75;
+      margin-bottom: 28px;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+
+    .listings-cta a {
+      display: inline-block;
+      font-family: 'Raleway', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: white;
+      background: var(--blush);
+      padding: 14px 34px;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .listings-cta a:hover {
+      background: var(--dark-brown);
+      transform: translateY(-2px);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1080px) {
+      .listings-grid { grid-template-columns: repeat(2, 1fr); }
+      .filters-inner { grid-template-columns: 1fr; gap: 12px; }
+      .type-chips, .sort-select { width: 100%; }
+      .type-chips { display: grid; grid-template-columns: repeat(3, 1fr); }
+      .filters { padding: 18px 28px; }
+      .results-count { padding: 18px 28px 0; }
+      .listings-section { padding: 22px 28px 80px; }
+    }
+
+    @media (max-width: 640px) {
+      .listings-grid { grid-template-columns: 1fr; gap: 26px; }
+      .listings-cta { padding: 40px 24px; margin-top: 56px; }
+      .listings-section { padding: 16px 18px 64px; }
+      .filters { padding: 16px 18px; }
+      .results-count { padding: 16px 18px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled" id="navbar">
+    <a href="index.html" class="nav-logo">Decle Realty</a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="listings.html" class="active">Listings</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="listings-hero">
+    <span class="eyebrow">All Properties</span>
+    <h1>Listings</h1>
+    <div class="gold-divider center"></div>
+    <p class="tagline">Browse Paula&rsquo;s full collection of properties for sale and rent across Trinidad &amp; Tobago. Search, filter and sort to find your next home.</p>
+  </section>
+
+  <!-- FILTER BAR -->
+  <div class="filters">
+    <div class="filters-inner">
+      <div class="search-wrap">
+        <span class="search-icon">⌕</span>
+        <input
+          id="search-input"
+          class="search-input"
+          type="text"
+          placeholder="Search by area, name, or keyword (Maraval, Westmoorings, pool…)"
+          autocomplete="off"
+          aria-label="Search listings"
+        >
+      </div>
+
+      <div class="type-chips" role="group" aria-label="Filter by type">
+        <button class="type-chip active" data-type="all">All</button>
+        <button class="type-chip" data-type="sale">For Sale</button>
+        <button class="type-chip" data-type="rent">For Rent</button>
+      </div>
+
+      <select class="sort-select" id="sort-select" aria-label="Sort listings">
+        <option value="featured">Sort: Featured</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="title-asc">Name: A to Z</option>
+        <option value="title-desc">Name: Z to A</option>
+      </select>
+    </div>
+
+    <label class="avail-toggle">
+      <input type="checkbox" id="show-unavailable">
+      <span class="avail-track"></span>
+      Show recently rented &amp; sold
+    </label>
+  </div>
+
+  <p class="results-count" id="results-count">Loading…</p>
+
+  <!-- LISTINGS GRID -->
+  <section class="listings-section">
+    <div class="listings-grid" id="listings-grid"></div>
+
+    <div class="empty-state" id="empty-state" style="display: none;">
+      <h3>No properties match your search</h3>
+      <p>Try a different keyword or clear the filters above.</p>
+    </div>
+
+    <!-- CTA -->
+    <div class="listings-cta">
+      <h2>Ready to take the next step?</h2>
+      <p>Get in touch with Paula directly to schedule a viewing or discuss your real estate needs.</p>
+      <a href="contact.html">Contact Paula</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Decle Realty</div>
+    <span class="footer-copy">&copy; 2025 Decle Realty. All rights reserved.</span>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/pauladeclerealty/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/declerealty" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </footer>
+
+  <script src="listings-data.js"></script>
+  <script>
+    // ── State ──────────────────────────────────────────
+    const state = {
+      query: '',
+      type: 'all',
+      sort: 'featured',
+      showUnavailable: false,
+    };
+
+    const els = {
+      grid: document.getElementById('listings-grid'),
+      empty: document.getElementById('empty-state'),
+      count: document.getElementById('results-count'),
+      search: document.getElementById('search-input'),
+      sort: document.getElementById('sort-select'),
+      chips: document.querySelectorAll('.type-chip'),
+      showUnavailable: document.getElementById('show-unavailable'),
+    };
+
+    // ── Helpers ────────────────────────────────────────
+    const escHtml = (s) =>
+      String(s ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+
+    function tagFor(listing) {
+      if (listing.status === 'rented') return { cls: 'rented', label: 'Rented' };
+      if (listing.status === 'sold') return { cls: 'sold', label: 'Sold' };
+      if (listing.type === 'sale-rent') return { cls: 'both', label: 'Sale / Rent' };
+      if (listing.type === 'rent') return { cls: 'rent', label: 'For Rent' };
+      if (listing.type === 'sale') return { cls: 'sale', label: 'For Sale' };
+      return null;
+    }
+
+    function sortKey(listing) {
+      // Normalize for sort: prefer sale price; fall back to rent (rent ≪ sale numerically, so both sort cohesively).
+      if (state.sort === 'price-asc' || state.sort === 'price-desc') {
+        const v = listing.sale ?? listing.rent ?? Number.MAX_SAFE_INTEGER;
+        return v;
+      }
+      return listing.title?.toLowerCase() ?? '';
+    }
+
+    // ── Filter + sort ──────────────────────────────────
+    function getFiltered() {
+      const q = state.query.trim().toLowerCase();
+      let list = window.LISTINGS || [];
+
+      if (!state.showUnavailable) {
+        list = list.filter((l) => l.status === 'available' || !l.status);
+      }
+
+      if (state.type === 'sale') list = list.filter((l) => l.sale);
+      else if (state.type === 'rent') list = list.filter((l) => l.rent);
+
+      if (q) {
+        list = list.filter((l) => {
+          const hay = `${l.title} ${l.location} ${l.blurb} ${l.price}`.toLowerCase();
+          return hay.includes(q);
+        });
+      }
+
+      if (state.sort !== 'featured') {
+        list = [...list].sort((a, b) => {
+          const ka = sortKey(a);
+          const kb = sortKey(b);
+          if (ka < kb) return state.sort.endsWith('desc') ? 1 : -1;
+          if (ka > kb) return state.sort.endsWith('desc') ? -1 : 1;
+          return 0;
+        });
+      }
+
+      return list;
+    }
+
+    // ── Render ─────────────────────────────────────────
+    function render() {
+      const list = getFiltered();
+      const total = (window.LISTINGS || []).length;
+
+      els.count.textContent =
+        list.length === total
+          ? `${total} Properties`
+          : `Showing ${list.length} of ${total} Properties`;
+
+      if (!list.length) {
+        els.grid.innerHTML = '';
+        els.empty.style.display = 'block';
+        return;
+      }
+      els.empty.style.display = 'none';
+
+      els.grid.innerHTML = list.map(cardHtml).join('');
+    }
+
+    function cardHtml(l) {
+      const tag = tagFor(l);
+      const tagHtml = tag ? `<span class="listing-tag ${tag.cls}">${tag.label}</span>` : '';
+      const isUnavailable = l.status === 'rented' || l.status === 'sold';
+      const cardClass = isUnavailable ? 'listing-card unavailable' : 'listing-card';
+      const href = l.pageUrl || `properties/${l.slug}.html`;
+      return `
+        <article class="${cardClass}">
+          <a class="listing-photo" href="${escHtml(href)}">
+            <img src="${escHtml(l.img)}" alt="${escHtml(l.title)}" loading="lazy">
+            ${tagHtml}
+          </a>
+          <div class="listing-body">
+            <h3 class="listing-title">${escHtml(l.title)}</h3>
+            <div class="gold-divider"></div>
+            <p class="listing-blurb">${escHtml(l.blurb || '')}</p>
+            <div class="listing-price">${escHtml(l.price)}</div>
+            <a class="listing-btn" href="${escHtml(href)}">View Details</a>
+          </div>
+        </article>`;
+    }
+
+    // ── Wire up events ─────────────────────────────────
+    let searchDebounce;
+    els.search.addEventListener('input', (e) => {
+      clearTimeout(searchDebounce);
+      searchDebounce = setTimeout(() => {
+        state.query = e.target.value;
+        render();
+      }, 120);
+    });
+
+    els.sort.addEventListener('change', (e) => {
+      state.sort = e.target.value;
+      render();
+    });
+
+    els.chips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        els.chips.forEach((c) => c.classList.remove('active'));
+        chip.classList.add('active');
+        state.type = chip.dataset.type;
+        render();
+      });
+    });
+
+    els.showUnavailable.addEventListener('change', (e) => {
+      state.showUnavailable = e.target.checked;
+      render();
+    });
+
+    // ── Nav menu (matches other pages) ─────────────────
+    function toggleMenu() {
+      document.getElementById('nav-links').classList.toggle('open');
+    }
+    document.addEventListener('click', (e) => {
+      const links = document.getElementById('nav-links');
+      const hamburger = document.getElementById('hamburger');
+      if (!links.contains(e.target) && !hamburger.contains(e.target)) {
+        links.classList.remove('open');
+      }
+    });
+
+    // ── Boot ───────────────────────────────────────────
+    render();
+  </script>
+</body>
+</html>

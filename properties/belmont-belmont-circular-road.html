@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BELMONT – Belmont Circular Road — Decle Realty</title>
+  <meta name="description" content="📍 BELMONT CIRCULAR ROAD – centrally located with strong income potential. 🏢 Multi-storey income-generating property 📐 Building: 9,171 sq. ft. 🌿 Land: 10,400">
+  <link rel="stylesheet" href="../styles.css">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "RealEstateListing",
+  "name": "BELMONT – Belmont Circular Road",
+  "description": "📍 BELMONT CIRCULAR ROAD – centrally located with strong income potential. 🏢 Multi-storey income-generating property 📐 Building: 9,171 sq. ft. 🌿 Land: 10,400 sq. ft. 🔽 Ground Floor • Kitchenette • Toilet & Bath • Open-plan space • 1 en-suite office 🔼 First Floor • Reception with office space, sink & T&B • Spacious Dining area • Full kitchen • 4 en-suite bedrooms (1 with kitchenette) • 2 half baths + 4 full bathrooms in all 🔝 Third Floor • 10 en-suite rooms • 5 of which are studio units wit",
+  "image": "../properties-images/belmont-belmont-circular-road/01.jpg",
+  "url": "properties/belmont-belmont-circular-road.html",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "BELMONT",
+    "addressCountry": "TT"
+  },
+  "offers": {
+    "@type": "Offer",
+    "availability": "https://schema.org/InStock",
+    "price": 8000000,
+    "priceCurrency": "TTD"
+  }
+}</script>
+  <style>
+    body { padding-top: 0; background: var(--cream); }
+
+    /* ── HERO ── */
+    .prop-hero {
+      position: relative;
+      width: 100%;
+      height: clamp(420px, 70vh, 720px);
+      overflow: hidden;
+      background: var(--dark-brown);
+    }
+    .prop-hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .prop-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(18,10,4,0.45) 0%, rgba(18,10,4,0.18) 38%, rgba(18,10,4,0.78) 100%);
+    }
+    .prop-hero-content {
+      position: absolute;
+      bottom: 56px;
+      left: 0; right: 0;
+      padding: 0 56px;
+      color: white;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .prop-hero-content .eyebrow { color: var(--gold-light); }
+    .prop-hero-content h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 4.5vw, 56px);
+      font-weight: 300;
+      letter-spacing: 3px;
+      line-height: 1.05;
+      margin-top: 8px;
+      max-width: 920px;
+    }
+    .prop-hero-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(22px, 2.4vw, 32px);
+      font-weight: 500;
+      color: var(--gold-light);
+      letter-spacing: 1px;
+      margin-top: 18px;
+    }
+
+    .status-banner {
+      position: absolute;
+      top: calc(var(--nav-height) + 24px);
+      right: 56px;
+      z-index: 4;
+      font-family: 'Raleway', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: white;
+      background: rgba(90, 62, 46, 0.95);
+      padding: 14px 28px;
+      backdrop-filter: blur(6px);
+    }
+    .status-banner.rented { background: rgba(90, 62, 46, 0.95); }
+    .status-banner.sold { background: rgba(58, 40, 24, 0.95); }
+
+    .back-link {
+      position: absolute;
+      top: calc(var(--nav-height) + 24px);
+      left: 56px;
+      z-index: 4;
+      font-family: 'Raleway', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.78);
+      background: rgba(255,255,255,0.07);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 11px 20px;
+      text-decoration: none;
+      transition: background 0.25s, border-color 0.25s, color 0.25s;
+    }
+    .back-link:hover {
+      background: rgba(255,255,255,0.18);
+      border-color: rgba(255,255,255,0.6);
+      color: white;
+    }
+
+    /* ── QUICK FACTS ── */
+    .quick-facts {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 36px 56px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+      background: white;
+      border-bottom: 1px solid rgba(212,165,116,0.25);
+    }
+    .fact {
+      text-align: center;
+      padding: 12px 8px;
+      border-right: 1px solid rgba(212,165,116,0.18);
+    }
+    .fact:last-child { border-right: none; }
+    .fact-icon { font-size: 22px; display: block; margin-bottom: 6px; }
+    .fact-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--dark-brown);
+      display: block;
+      letter-spacing: 0.5px;
+    }
+    .fact-label {
+      font-family: 'Raleway', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--blush);
+      display: block;
+      margin-top: 4px;
+    }
+
+    /* ── BODY (2 columns) ── */
+    .prop-body {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 64px 56px 80px;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .prop-main { min-width: 0; }
+
+    .prop-section {
+      background: white;
+      padding: 40px 44px;
+      margin-bottom: 28px;
+      border-left: 2px solid var(--gold);
+      box-shadow: 0 2px 22px rgba(58,40,24,0.05);
+    }
+    .prop-section .eyebrow { color: var(--blush); }
+    .prop-section .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 400;
+      color: var(--dark-brown);
+      letter-spacing: 1px;
+      line-height: 1.2;
+    }
+    .prop-section .gold-divider { margin: 14px 0 26px; }
+
+    .prop-description p, .prop-region p {
+      font-size: 14.5px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--deep);
+      opacity: 0.9;
+      margin-bottom: 16px;
+    }
+    .prop-description ul, .prop-region ul {
+      list-style: none;
+      margin: 12px 0 22px;
+      padding: 0;
+    }
+    .prop-description li, .prop-region li {
+      position: relative;
+      padding-left: 28px;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--deep);
+      margin-bottom: 8px;
+    }
+    .prop-description li::before, .prop-region li::before {
+      content: '✦';
+      position: absolute;
+      left: 4px;
+      top: 0;
+      color: var(--gold);
+    }
+    .prop-description strong, .prop-region strong {
+      color: var(--dark-brown);
+      font-weight: 600;
+    }
+    .prop-region .button { display: none; }
+    .prop-region p.small a { display: none; }
+
+    .prop-features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px 28px;
+    }
+    .prop-features li {
+      font-family: 'Raleway', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--deep);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(212,165,116,0.18);
+    }
+    .prop-features .check {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    /* ── SIDE COLUMN (sticky price card) ── */
+    .prop-side {
+      position: sticky;
+      top: calc(var(--nav-height) + 32px);
+    }
+    .price-card {
+      background: var(--dark-brown);
+      color: white;
+      padding: 44px 36px;
+      box-shadow: 0 14px 40px rgba(58,40,24,0.18);
+      position: relative;
+      overflow: hidden;
+    }
+    .price-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at top right, rgba(212,165,116,0.16) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .price-label {
+      font-family: 'Raleway', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .price-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 3vw, 40px);
+      font-weight: 400;
+      color: white;
+      letter-spacing: 1px;
+      line-height: 1.2;
+      margin-top: 12px;
+    }
+    .price-card .gold-divider {
+      background: rgba(212,165,116,0.5);
+      margin: 22px 0 28px;
+    }
+    .price-cta {
+      display: block;
+      font-family: 'Raleway', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--dark-brown);
+      background: var(--gold-light);
+      padding: 16px 24px;
+      text-align: center;
+      text-decoration: none;
+      transition: background 0.25s, transform 0.2s;
+    }
+    .price-cta:hover { background: var(--gold); transform: translateY(-2px); }
+
+    .price-contact {
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .price-contact a {
+      font-family: 'Raleway', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.78);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: color 0.22s;
+    }
+    .price-contact a:hover { color: var(--gold-light); }
+
+    .price-meta {
+      margin-top: 24px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ── GALLERY ── */
+    .prop-gallery-section {
+      background: var(--cream-dark);
+      padding: 76px 56px;
+    }
+    .prop-gallery-section .eyebrow,
+    .prop-gallery-section .section-title,
+    .prop-gallery-section .gold-divider {
+      max-width: 1280px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .prop-gallery-section .eyebrow { color: var(--blush); }
+    .prop-gallery-section .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 400;
+      color: var(--dark-brown);
+      letter-spacing: 1px;
+    }
+    .prop-gallery-section .gold-divider { margin: 14px 0 36px; }
+    .prop-gallery {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .gallery-thumb {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      background: var(--cream);
+    }
+    .gallery-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .gallery-thumb:hover img { transform: scale(1.06); }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(18,10,4,0.96);
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox-img {
+      max-width: 95vw;
+      max-height: 90vh;
+      object-fit: contain;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+    }
+    .lightbox-close, .lightbox-prev, .lightbox-next {
+      position: absolute;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: white;
+      font-family: 'Raleway', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      cursor: pointer;
+      padding: 14px 22px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .lightbox-close { top: 28px; right: 28px; }
+    .lightbox-prev { left: 28px; top: 50%; transform: translateY(-50%); }
+    .lightbox-next { right: 28px; top: 50%; transform: translateY(-50%); }
+    .lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover {
+      background: rgba(255,255,255,0.22);
+      border-color: white;
+    }
+    .lightbox-counter {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Raleway', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 980px) {
+      .prop-body { grid-template-columns: 1fr; padding: 40px 28px 64px; gap: 32px; }
+      .prop-side { position: static; }
+      .prop-hero-content { padding: 0 28px; bottom: 32px; }
+      .quick-facts { padding: 24px 28px; gap: 8px; }
+      .fact { padding: 8px 4px; }
+      .fact-value { font-size: 20px; }
+      .prop-section { padding: 28px 28px; }
+      .prop-gallery-section { padding: 56px 28px; }
+      .status-banner, .back-link { left: 20px; right: 20px; padding: 10px 16px; font-size: 10px; }
+      .status-banner { left: auto; right: 20px; }
+    }
+
+    @media (max-width: 600px) {
+      .prop-features { grid-template-columns: 1fr; }
+      .prop-gallery { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+      .lightbox-prev, .lightbox-next { padding: 12px 14px; font-size: 11px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled" id="navbar">
+    <a href="../index.html" class="nav-logo">Decle Realty</a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../listings.html" class="active">Listings</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="prop-hero">
+    <img class="prop-hero-img" src="../properties-images/belmont-belmont-circular-road/01.jpg" alt="BELMONT – Belmont Circular Road">
+    <div class="prop-hero-overlay"></div>
+    <a class="back-link" href="../listings.html">← Back to Listings</a>
+    
+    <div class="prop-hero-content">
+      <span class="eyebrow">BELMONT</span>
+      <h1>BELMONT – Belmont Circular Road</h1>
+      <div class="prop-hero-price">$8,000,000</div>
+    </div>
+  </section>
+
+  
+    <div class="quick-facts">
+      
+        <div class="fact">
+          <span class="fact-icon">🛏️</span>
+          <span class="fact-value">14</span>
+          <span class="fact-label">Bedrooms</span>
+        </div>
+        <div class="fact">
+          <span class="fact-icon">🛁</span>
+          <span class="fact-value">14</span>
+          <span class="fact-label">Bathrooms</span>
+        </div>
+        <div class="fact">
+          <span class="fact-icon">📐</span>
+          <span class="fact-value">10,400</span>
+          <span class="fact-label">Sq. Ft.</span>
+        </div>
+        <div class="fact">
+          <span class="fact-icon">🏠</span>
+          <span class="fact-value">House</span>
+          
+        </div>
+    </div>
+
+  <!-- BODY -->
+  <div class="prop-body">
+    <main class="prop-main">
+      
+    <section class="prop-section">
+      <span class="eyebrow">About this Property</span>
+      <h2 class="section-title">Property Details</h2>
+      <div class="gold-divider"></div>
+      <div class="prop-description"><p style="text-align: left">📍 BELMONT CIRCULAR ROAD – centrally located with strong income potential.</p>
+<p>🏢 Multi-storey income-generating property<br>
+📐 Building: 9,171 sq. ft.<br>
+🌿 Land: 10,400 sq. ft.</p>
+<p>🔽 Ground Floor<br>
+• Kitchenette<br>
+• Toilet &amp; Bath<br>
+• Open-plan space<br>
+• 1 en-suite office</p>
+<p>🔼 First Floor<br>
+• Reception with office space, sink &amp; T&amp;B<br>
+• Spacious Dining area<br>
+• Full kitchen<br>
+• 4 en-suite bedrooms (1 with kitchenette)<br>
+• 2 half baths + 4 full bathrooms in all</p>
+<p>🔝 Third Floor<br>
+• 10 en-suite rooms<br>
+• 5 of which are studio units with kitchenettes</p>
+<p>🚗 Parking for 8 vehicles<br>
+🚿 2 outdoor showers<br>
+⚙️ Fully air-conditioned, 3 meters, 3 panel boxes, 6 × 1,000-gallon water tanks<br>
+📜 POS Corp 999-year lease</p>
+<p>✅ Ideal for guesthouse, short term rentals, medical or corporate use — excellent cash-flow opportunity in a prime location.</p>
+<p>&nbsp;</p>
+</div>
+    </section>
+      
+    <section class="prop-section">
+      <span class="eyebrow">Highlights</span>
+      <h2 class="section-title">Features &amp; Amenities</h2>
+      <div class="gold-divider"></div>
+      <ul class="prop-features">
+        <li><span class="check">✓</span>Fully Furnished</li><li><span class="check">✓</span>Internet Access</li><li><span class="check">✓</span>Cable TV</li><li><span class="check">✓</span>Electricity</li><li><span class="check">✓</span>Air Conditioning</li><li><span class="check">✓</span>Kitchen Appliances</li><li><span class="check">✓</span>Powder Room</li><li><span class="check">✓</span>Parking on Compound</li><li><span class="check">✓</span>Freehold Land</li><li><span class="check">✓</span>Leasehold Land</li><li><span class="check">✓</span>Kid Friendly</li><li><span class="check">✓</span>Office Space</li><li><span class="check">✓</span>Laundry Area/Facility</li><li><span class="check">✓</span>Built-in Closets</li><li><span class="check">✓</span>Water Tank</li><li><span class="check">✓</span>Water Pump</li><li><span class="check">✓</span>Water Heater</li>
+      </ul>
+    </section>
+      
+    <section class="prop-section">
+      <span class="eyebrow">Location</span>
+      <h2 class="section-title">About the Area</h2>
+      <div class="gold-divider"></div>
+      <div class="prop-region"><p><strong>Belmont</strong><br><span>Belmont, in north-east Port of Spain, in the Republic of Trinidad and Tobago, is located at the foot of the Laventille Hills. It was the city's first suburb and in the 1840s–'50s, parts of the area were settled by Africans rescued by the Royal Navy from illegal slaving ships. In the 1880s–'90s, the population swelled rapidly, and the characteristic Belmont street pattern of narrow, winding lanes developed. Belmont originally had many large homes but a lot have been renovated and converted to business use with some remaining in family hands. It was the birthplace and early home of many important Carnival designers and bandleaders and has approximately 9,035 inhabitants.</span></p></div>
+    </section>
+    </main>
+    
+    <aside class="prop-side">
+      <div class="price-card">
+        <span class="price-label">For Sale</span>
+        <div class="price-value">$8,000,000</div>
+        <div class="gold-divider"></div>
+        <a href="../contact.html?listing=belmont-belmont-circular-road&amp;title=BELMONT%20%E2%80%93%20Belmont%20Circular%20Road" class="price-cta">Inquire About This Property</a>
+        <div class="price-contact">
+          <a href="tel:+18686816137"><span>📞</span> +1 868-681-6137</a>
+          <a href="mailto:paula@declerealty.com"><span>✉️</span> paula@declerealty.com</a>
+        </div>
+        <p class="price-meta">Property Ref: BOK-980166</p>
+      </div>
+    </aside>
+  </div>
+
+  
+    <section class="prop-gallery-section">
+      <span class="eyebrow">Gallery</span>
+      <h2 class="section-title">Photos</h2>
+      <div class="gold-divider"></div>
+      <div class="prop-gallery">
+        
+          <button class="gallery-thumb" data-idx="0" aria-label="View photo 1">
+            <img src="../properties-images/belmont-belmont-circular-road/02.jpg" alt="BELMONT – Belmont Circular Road — photo 1" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="1" aria-label="View photo 2">
+            <img src="../properties-images/belmont-belmont-circular-road/03.jpeg" alt="BELMONT – Belmont Circular Road — photo 2" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="2" aria-label="View photo 3">
+            <img src="../properties-images/belmont-belmont-circular-road/04.jpg" alt="BELMONT – Belmont Circular Road — photo 3" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="3" aria-label="View photo 4">
+            <img src="../properties-images/belmont-belmont-circular-road/05.jpg" alt="BELMONT – Belmont Circular Road — photo 4" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="4" aria-label="View photo 5">
+            <img src="../properties-images/belmont-belmont-circular-road/06.jpg" alt="BELMONT – Belmont Circular Road — photo 5" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="5" aria-label="View photo 6">
+            <img src="../properties-images/belmont-belmont-circular-road/07.jpg" alt="BELMONT – Belmont Circular Road — photo 6" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="6" aria-label="View photo 7">
+            <img src="../properties-images/belmont-belmont-circular-road/08.jpg" alt="BELMONT – Belmont Circular Road — photo 7" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="7" aria-label="View photo 8">
+            <img src="../properties-images/belmont-belmont-circular-road/09.jpg" alt="BELMONT – Belmont Circular Road — photo 8" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="8" aria-label="View photo 9">
+            <img src="../properties-images/belmont-belmont-circular-road/10.jpg" alt="BELMONT – Belmont Circular Road — photo 9" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="9" aria-label="View photo 10">
+            <img src="../properties-images/belmont-belmont-circular-road/11.jpg" alt="BELMONT – Belmont Circular Road — photo 10" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="10" aria-label="View photo 11">
+            <img src="../properties-images/belmont-belmont-circular-road/12.jpg" alt="BELMONT – Belmont Circular Road — photo 11" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="11" aria-label="View photo 12">
+            <img src="../properties-images/belmont-belmont-circular-road/13.jpg" alt="BELMONT – Belmont Circular Road — photo 12" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="12" aria-label="View photo 13">
+            <img src="../properties-images/belmont-belmont-circular-road/14.jpg" alt="BELMONT – Belmont Circular Road — photo 13" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="13" aria-label="View photo 14">
+            <img src="../properties-images/belmont-belmont-circular-road/15.jpg" alt="BELMONT – Belmont Circular Road — photo 14" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="14" aria-label="View photo 15">
+            <img src="../properties-images/belmont-belmont-circular-road/16.jpeg" alt="BELMONT – Belmont Circular Road — photo 15" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="15" aria-label="View photo 16">
+            <img src="../properties-images/belmont-belmont-circular-road/17.jpeg" alt="BELMONT – Belmont Circular Road — photo 16" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="16" aria-label="View photo 17">
+            <img src="../properties-images/belmont-belmont-circular-road/18.jpeg" alt="BELMONT – Belmont Circular Road — photo 17" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="17" aria-label="View photo 18">
+            <img src="../properties-images/belmont-belmont-circular-road/19.jpeg" alt="BELMONT – Belmont Circular Road — photo 18" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="18" aria-label="View photo 19">
+            <img src="../properties-images/belmont-belmont-circular-road/20.jpeg" alt="BELMONT – Belmont Circular Road — photo 19" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="19" aria-label="View photo 20">
+            <img src="../properties-images/belmont-belmont-circular-road/21.jpeg" alt="BELMONT – Belmont Circular Road — photo 20" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="20" aria-label="View photo 21">
+            <img src="../properties-images/belmont-belmont-circular-road/22.jpeg" alt="BELMONT – Belmont Circular Road — photo 21" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="21" aria-label="View photo 22">
+            <img src="../properties-images/belmont-belmont-circular-road/23.jpeg" alt="BELMONT – Belmont Circular Road — photo 22" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="22" aria-label="View photo 23">
+            <img src="../properties-images/belmont-belmont-circular-road/24.jpeg" alt="BELMONT – Belmont Circular Road — photo 23" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="23" aria-label="View photo 24">
+            <img src="../properties-images/belmont-belmont-circular-road/25.jpeg" alt="BELMONT – Belmont Circular Road — photo 24" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="24" aria-label="View photo 25">
+            <img src="../properties-images/belmont-belmont-circular-road/26.jpeg" alt="BELMONT – Belmont Circular Road — photo 25" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="25" aria-label="View photo 26">
+            <img src="../properties-images/belmont-belmont-circular-road/27.jpeg" alt="BELMONT – Belmont Circular Road — photo 26" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="26" aria-label="View photo 27">
+            <img src="../properties-images/belmont-belmont-circular-road/28.jpeg" alt="BELMONT – Belmont Circular Road — photo 27" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="27" aria-label="View photo 28">
+            <img src="../properties-images/belmont-belmont-circular-road/29.jpeg" alt="BELMONT – Belmont Circular Road — photo 28" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="28" aria-label="View photo 29">
+            <img src="../properties-images/belmont-belmont-circular-road/30.jpeg" alt="BELMONT – Belmont Circular Road — photo 29" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="29" aria-label="View photo 30">
+            <img src="../properties-images/belmont-belmont-circular-road/31.jpeg" alt="BELMONT – Belmont Circular Road — photo 30" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="30" aria-label="View photo 31">
+            <img src="../properties-images/belmont-belmont-circular-road/32.jpeg" alt="BELMONT – Belmont Circular Road — photo 31" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="31" aria-label="View photo 32">
+            <img src="../properties-images/belmont-belmont-circular-road/33.jpeg" alt="BELMONT – Belmont Circular Road — photo 32" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="32" aria-label="View photo 33">
+            <img src="../properties-images/belmont-belmont-circular-road/34.jpeg" alt="BELMONT – Belmont Circular Road — photo 33" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="33" aria-label="View photo 34">
+            <img src="../properties-images/belmont-belmont-circular-road/35.jpeg" alt="BELMONT – Belmont Circular Road — photo 34" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="34" aria-label="View photo 35">
+            <img src="../properties-images/belmont-belmont-circular-road/36.jpeg" alt="BELMONT – Belmont Circular Road — photo 35" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="35" aria-label="View photo 36">
+            <img src="../properties-images/belmont-belmont-circular-road/37.jpeg" alt="BELMONT – Belmont Circular Road — photo 36" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="36" aria-label="View photo 37">
+            <img src="../properties-images/belmont-belmont-circular-road/38.jpeg" alt="BELMONT – Belmont Circular Road — photo 37" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="37" aria-label="View photo 38">
+            <img src="../properties-images/belmont-belmont-circular-road/39.jpeg" alt="BELMONT – Belmont Circular Road — photo 38" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="38" aria-label="View photo 39">
+            <img src="../properties-images/belmont-belmont-circular-road/40.jpeg" alt="BELMONT – Belmont Circular Road — photo 39" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="39" aria-label="View photo 40">
+            <img src="../properties-images/belmont-belmont-circular-road/41.jpeg" alt="BELMONT – Belmont Circular Road — photo 40" loading="lazy">
+          </button>
+          <button class="gallery-thumb" data-idx="40" aria-label="View photo 41">
+            <img src="../properties-images/belmont-belmont-circular-road/42.jpeg" alt="BELMONT – Belmont Circular Road — photo 41" loading="lazy">
+          </button>
+      </div>
+    </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+    <button class="lightbox-close" id="lb-close" aria-label="Close">Close ✕</button>
+    <button class="lightbox-prev" id="lb-prev" aria-label="Previous">‹ Prev</button>
+    <img class="lightbox-img" id="lb-img" alt="">
+    <button class="lightbox-next" id="lb-next" aria-label="Next">Next ›</button>
+    <div class="lightbox-counter" id="lb-counter"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Decle Realty</div>
+    <span class="footer-copy">© 2025 Decle Realty. All rights reserved.</span>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/pauladeclerealty/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/declerealty" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('nav-links').classList.toggle('open');
+    }
+    document.addEventListener('click', (e) => {
+      const links = document.getElementById('nav-links');
+      const hamburger = document.getElementById('hamburger');
+      if (!links.contains(e.target) && !hamburger.contains(e.target)) {
+        links.classList.remove('open');
+      }
+    });
+
+    // Lightbox
+    const PHOTOS = ["../properties-images/belmont-belmont-circular-road/01.jpg","../properties-images/belmont-belmont-circular-road/02.jpg","../properties-images/belmont-belmont-circular-road/03.jpeg","../properties-images/belmont-belmont-circular-road/04.jpg","../properties-images/belmont-belmont-circular-road/05.jpg","../properties-images/belmont-belmont-circular-road/06.jpg","../properties-images/belmont-belmont-circular-road/07.jpg","../properties-images/belmont-belmont-circular-road/08.jpg","../properties-images/belmont-belmont-circular-road/09.jpg","../properties-images/belmont-belmont-circular-road/10.jpg","../properties-images/belmont-belmont-circular-road/11.jpg","../properties-images/belmont-belmont-circular-road/12.jpg","../properties-images/belmont-belmont-circular-road/13.jpg","../properties-images/belmont-belmont-circular-road/14.jpg","../properties-images/belmont-belmont-circular-road/15.jpg","../properties-images/belmont-belmont-circular-road/16.jpeg","../properties-images/belmont-belmont-circular-road/17.jpeg","../properties-images/belmont-belmont-circular-road/18.jpeg","../properties-images/belmont-belmont-circular-road/19.jpeg","../properties-images/belmont-belmont-circular-road/20.jpeg","../properties-images/belmont-belmont-circular-road/21.jpeg","../properties-images/belmont-belmont-circular-road/22.jpeg","../properties-images/belmont-belmont-circular-road/23.jpeg","../properties-images/belmont-belmont-circular-road/24.jpeg","../properties-images/belmont-belmont-circular-road/25.jpeg","../properties-images/belmont-belmont-circular-road/26.jpeg","../properties-images/belmont-belmont-circular-road/27.jpeg","../properties-images/belmont-belmont-circular-road/28.jpeg","../properties-images/belmont-belmont-circular-road/29.jpeg","../properties-images/belmont-belmont-circular-road/30.jpeg","../properties-images/belmont-belmont-circular-road/31.jpeg","../properties-images/belmont-belmont-circular-road/32.jpeg","../properties-images/belmont-belmont-circular-road/33.jpeg","../properties-images/belmont-belmont-circular-road/34.jpeg","../properties-images/belmont-belmont-circular-road/35.jpeg","../properties-images/belmont-belmont-circular-road/36.jpeg","../properties-images/belmont-belmont-circular-road/37.jpeg","../properties-images/belmont-belmont-circular-road/38.jpeg","../properties-images/belmont-belmont-circular-road/39.jpeg","../properties-images/belmont-belmont-circular-road/40.jpeg","../properties-images/belmont-belmont-circular-road/41.jpeg","../properties-images/belmont-belmont-circular-road/42.jpeg"];
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lb-img');
+    const lbCounter = document.getElementById('lb-counter');
+    let lbIdx = 0;
+
+    function openLightbox(i) {
+      // Index in gallery (photosForGallery is photos[1..]) → photo index = i + 1 in PHOTOS
+      lbIdx = i + 1;
+      showLb();
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function showLb() {
+      if (!PHOTOS.length) return;
+      lbIdx = (lbIdx + PHOTOS.length) % PHOTOS.length;
+      lbImg.src = PHOTOS[lbIdx];
+      lbCounter.textContent = (lbIdx + 1) + ' / ' + PHOTOS.length;
+    }
+
+    document.querySelectorAll('.gallery-thumb').forEach((btn) => {
+      btn.addEventListener('click', () => openLightbox(parseInt(btn.dataset.idx, 10)));
+    });
+    document.getElementById('lb-close').addEventListener('click', closeLightbox);
+    document.getElementById('lb-prev').addEventListener('click', () => { lbIdx--; showLb(); });
+    document.getElementById('lb-next').addEventListener('click', () => { lbIdx++; showLb(); });
+    lb.addEventListener('click', (e) => { if (e.target === lb) closeLightbox(); });
+    document.addEventListener('keydown', (e) => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      else if (e.key === 'ArrowLeft') { lbIdx--; showLb(); }
+      else if (e.key === 'ArrowRight') { lbIdx++; showLb(); }
+    });
+
+    // Hero image as click target → open at first photo
+    document.querySelector('.prop-hero-img')?.addEventListener('click', () => {
+      lbIdx = 0;
+      showLb();
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  </script>
+</body>
+</html>

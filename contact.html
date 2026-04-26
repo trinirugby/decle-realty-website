@@ -244,6 +244,47 @@
       transform: translateY(-1px);
     }
 
+    /* ── INQUIRY BANNER ── */
+    .inquiry-banner {
+      max-width: 1280px;
+      margin: 0 auto 24px;
+      padding: 18px 22px;
+      background: white;
+      border-left: 3px solid var(--gold);
+      box-shadow: 0 2px 18px rgba(58,40,24,0.05);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .inquiry-banner .label {
+      font-family: 'Raleway', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--blush);
+    }
+    .inquiry-banner .title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--dark-brown);
+      letter-spacing: 0.4px;
+    }
+    .inquiry-banner a {
+      font-family: 'Raleway', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--blush);
+      text-decoration: none;
+      margin-left: auto;
+      transition: color 0.22s;
+    }
+    .inquiry-banner a:hover { color: var(--dark-brown); }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .contact-body {
@@ -265,6 +306,7 @@
     <a href="index.html" class="nav-logo">Decle Realty</a>
     <ul class="nav-links" id="nav-links">
       <li><a href="index.html">Home</a></li>
+      <li><a href="listings.html">Listings</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html" class="active">Contact</a></li>
     </ul>
@@ -286,6 +328,15 @@
 
   <!-- CONTACT BODY -->
   <section class="contact-body">
+
+    <!-- INQUIRY BANNER (only shown when ?listing= is present) -->
+    <div class="inquiry-banner" id="inquiry-banner" style="display: none; grid-column: 1 / -1;">
+      <div>
+        <span class="label">Inquiring About</span>
+        <div class="title" id="inquiry-title"></div>
+      </div>
+      <a id="inquiry-back" href="#">← Back to listing</a>
+    </div>
 
     <!-- INFO -->
     <div class="contact-info">
@@ -388,6 +439,25 @@
       }
     });
 
+    // ── Listing pre-fill from ?listing=<slug>&title=<urlencoded> ──
+    const params = new URLSearchParams(location.search);
+    const listingSlug = params.get('listing');
+    const listingTitle = params.get('title');
+
+    if (listingSlug && listingTitle) {
+      const banner = document.getElementById('inquiry-banner');
+      const titleEl = document.getElementById('inquiry-title');
+      const backEl = document.getElementById('inquiry-back');
+      titleEl.textContent = listingTitle;
+      backEl.href = 'properties/' + encodeURIComponent(listingSlug) + '.html';
+      banner.style.display = 'flex';
+
+      const msg = document.getElementById('message');
+      if (!msg.value) {
+        msg.value = 'Hi Paula,\n\nI\'m interested in "' + listingTitle + '" and would love to know more — could you share additional details, photos, or schedule a viewing?\n\nThanks!';
+      }
+    }
+
     function handleSubmit(e) {
       e.preventDefault();
       const name    = document.getElementById('name').value;
@@ -395,12 +465,22 @@
       const phone   = document.getElementById('phone').value;
       const message = document.getElementById('message').value;
 
-      const subject = encodeURIComponent('Inquiry from ' + name + ' — Decle Realty Website');
+      const subjectText = listingTitle
+        ? 'Inquiry: ' + listingTitle + ' — from ' + name
+        : 'Inquiry from ' + name + ' — Decle Realty Website';
+      const subject = encodeURIComponent(subjectText);
+
+      const refLine = listingTitle
+        ? 'Property: ' + listingTitle + '\n' +
+          'Listing: ' + location.origin + '/properties/' + listingSlug + '.html\n\n'
+        : '';
+
       const body    = encodeURIComponent(
         'Name: ' + name + '\n' +
         'Email: ' + email + '\n' +
         (phone ? 'Phone: ' + phone + '\n' : '') +
-        '\nMessage:\n' + message
+        '\n' + refLine +
+        'Message:\n' + message
       );
 
       window.location.href = 'mailto:paula@declerealty.com?subject=' + subject + '&body=' + body;

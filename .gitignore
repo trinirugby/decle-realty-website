@@ -1,1 +1,5 @@
 .superpowers/
+scripts/node_modules/
+scripts/cards-snippet.html
+scripts/listings-data.json
+scripts/sample-*.html
