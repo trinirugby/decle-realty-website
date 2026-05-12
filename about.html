@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Paula — Decle Realty</title>
-  <meta name="description" content="Meet Paula Decle — award winning realtor helping buyers and sellers in Trinidad &amp; Tobago since 2006. FIU &amp; AREA certified.">
+  <title>About Paula &amp; Stephanie — Decle Realty</title>
+  <meta name="description" content="Meet Paula &amp; Stephanie Decle — the mother-daughter team helping buyers and sellers across Trinidad &amp; Tobago. Award winning, FIU &amp; AREA certified.">
   <link rel="stylesheet" href="styles.css">
   <style>
     body { padding-top: 0; }
@@ -156,6 +156,65 @@
       color: var(--blush);
     }
 
+    /* ── THE TEAM ── */
+    .team {
+      background: var(--dark-brown);
+      padding: 100px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .team::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(212,165,116,0.10) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .team .eyebrow { color: var(--gold-light); }
+
+    .team h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 4vw, 50px);
+      font-weight: 300;
+      color: var(--white);
+      letter-spacing: 4px;
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .team .gold-divider { margin: 18px auto 40px; }
+
+    .team-photo {
+      max-width: 520px;
+      margin: 0 auto;
+      border: 3px solid var(--gold);
+      box-shadow: 0 0 0 8px rgba(212,165,116,0.15), 0 20px 60px rgba(0,0,0,0.4);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .team-photo img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .team-caption {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(15px, 1.9vw, 19px);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.62);
+      max-width: 520px;
+      margin: 32px auto 0;
+      line-height: 1.75;
+      letter-spacing: 0.5px;
+      position: relative;
+    }
+
     /* ── GALLERY ── */
     .gallery {
       background: var(--cream-dark);
@@ -208,7 +267,7 @@
 
     .gallery-item:hover img { transform: scale(1.05); }
 
-    /* Video column — height = 3 rows × 190px + 2 gaps × 14px = 598px */
+    /* Video column — height = 3 rows × 190px + 2 gaps × 14px = 598px; two videos stack and split it evenly */
     .gallery-video-col {
       flex: 0 0 28%;
       height: 598px;
@@ -216,20 +275,24 @@
       overflow: hidden;
       border: 2px solid var(--gold);
       box-shadow: 0 0 0 6px rgba(212,165,116,0.12);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
     }
 
     .gallery-video-col video {
       width: 100%;
-      height: 100%;
+      flex: 1 1 0;
+      min-height: 0;
       object-fit: cover;
       display: block;
     }
 
-    #gallery-video::-webkit-media-controls { display: none !important; }
-    #gallery-video::-webkit-media-controls-panel { display: none !important; }
-    #gallery-video::-webkit-media-controls-play-button { display: none !important; }
-    #gallery-video::-webkit-media-controls-start-playback-button { display: none !important; }
-    #gallery-video::-webkit-media-controls-overlay-play-button { display: none !important; }
+    .gallery-video-col video::-webkit-media-controls,
+    .gallery-video-col video::-webkit-media-controls-panel,
+    .gallery-video-col video::-webkit-media-controls-play-button,
+    .gallery-video-col video::-webkit-media-controls-start-playback-button,
+    .gallery-video-col video::-webkit-media-controls-overlay-play-button { display: none !important; }
 
     .walkthrough-label {
       position: absolute;
@@ -305,9 +368,10 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
       .bio { grid-template-columns: 1fr; gap: 48px; padding: 72px 36px; }
+      .team { padding: 72px 28px; }
       .gallery { padding: 64px 36px; }
       .gallery-layout { flex-direction: column; }
-      .gallery-video-col { min-height: 320px; }
+      .gallery-video-col { height: auto; min-height: 640px; }
     }
 
     @media (max-width: 600px) {
@@ -374,6 +438,58 @@
     </div>
   </section>
 
+  <!-- PROFILE HERO — STEPHANIE -->
+  <section class="profile-hero">
+    <div class="profile-avatar">
+      <img src="stephanie-decle.jpg" alt="Stephanie Decle — Realtor &amp; Co-Agent">
+    </div>
+    <span class="eyebrow">Meet Your Co-Agent</span>
+    <h1>Stephanie Decle</h1>
+    <div class="gold-divider center"></div>
+    <p class="profile-tagline">Realtor and co-agent at Decle Realty, bringing fresh energy, a modern eye, and a client-first approach to every home, every story, and every key handed over.</p>
+  </section>
+
+  <!-- BIO — STEPHANIE -->
+  <section class="bio">
+    <div class="bio-text">
+      <span class="eyebrow">About Stephanie</span>
+      <h2>The Next Chapter of Decle Realty</h2>
+      <div class="gold-divider"></div>
+      <p>Working alongside Paula, Stephanie brings a contemporary perspective to one of Trinidad &amp; Tobago's most trusted real estate names — combining the legacy and local relationships of Decle Realty with a sharp focus on modern marketing, digital reach, and the design sensibilities today's buyers and sellers expect.</p>
+      <p>She believes great real estate is part service, part storytelling — every property has the right buyer, and her job is to make the introduction feel effortless. Whether guiding a first-time homeowner through their first offer or showcasing a luxury listing to the right audience, Stephanie is committed to clarity, responsiveness, and results.</p>
+      <p>A second-generation realtor, building on twenty years of Decle Realty trust — with the energy and tools of a new era.</p>
+    </div>
+
+    <div class="credentials">
+      <div class="cred-card">
+        <span class="cred-icon">🤝</span>
+        <h3>Client-First Approach</h3>
+        <p>Personal, responsive, and detail-driven</p>
+      </div>
+      <div class="cred-card">
+        <span class="cred-icon">📱</span>
+        <h3>Modern Marketing</h3>
+        <p>Digital, visual, and social-savvy</p>
+      </div>
+      <div class="cred-card">
+        <span class="cred-icon">🌴</span>
+        <h3>Local Expertise</h3>
+        <p>Trinidad &amp; Tobago, born and based</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE TEAM -->
+  <section class="team">
+    <span class="eyebrow">Mother &amp; Daughter</span>
+    <h2>The Decle Team</h2>
+    <div class="gold-divider center"></div>
+    <div class="team-photo">
+      <img src="decle-team.jpg" alt="Paula and Stephanie Decle — the Decle Realty team">
+    </div>
+    <p class="team-caption">Two generations. One promise — to treat every home and every client with the care, expertise, and discretion the Decle name is known for.</p>
+  </section>
+
   <!-- GALLERY -->
   <section class="gallery">
     <div class="gallery-header">
@@ -402,7 +518,7 @@
         </div>
       </div>
 
-      <!-- Right 1/3: walkthrough video -->
+      <!-- Right 1/3: walkthrough video + park reel stacked -->
       <div class="gallery-video-col">
         <div class="walkthrough-label">
           <span>Walkthrough</span>
@@ -411,6 +527,9 @@
         <video id="gallery-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
           <source src="property-video.mov" type="video/mp4">
           <source src="property-video.mov" type="video/quicktime">
+        </video>
+        <video id="gallery-video-2" autoplay muted loop playsinline webkit-playsinline preload="auto">
+          <source src="park-reel.mp4" type="video/mp4">
         </video>
       </div>
 
@@ -448,16 +567,14 @@
       }
     });
 
-    const galleryVideo = document.getElementById('gallery-video');
+    const galleryVideos = document.querySelectorAll('.gallery-video-col video');
     function tryPlayGallery() {
-      if (galleryVideo && galleryVideo.paused) {
-        galleryVideo.play().catch(() => {});
-      }
+      galleryVideos.forEach(v => { if (v.paused) v.play().catch(() => {}); });
     }
     tryPlayGallery();
     document.addEventListener('DOMContentLoaded', tryPlayGallery);
     document.addEventListener('touchstart', tryPlayGallery, { once: true, passive: true });
-    galleryVideo && galleryVideo.addEventListener('suspend', tryPlayGallery);
+    galleryVideos.forEach(v => v.addEventListener('suspend', tryPlayGallery));
 </script>
 </body>
 </html>
