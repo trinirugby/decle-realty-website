@@ -310,6 +310,7 @@
     .listing-tag.sale { background: rgba(90, 62, 46, 0.92); }
     .listing-tag.rent { background: rgba(200, 160, 138, 0.95); }
     .listing-tag.both { background: rgba(212, 165, 116, 0.95); color: var(--deep); }
+    .listing-tag.under-offer { background: rgba(184, 134, 72, 0.95); color: #fff; }
     .listing-tag.rented,
     .listing-tag.sold {
       top: auto;
@@ -584,6 +585,7 @@
     function tagFor(listing) {
       if (listing.status === 'rented') return { cls: 'rented', label: 'Rented' };
       if (listing.status === 'sold') return { cls: 'sold', label: 'Sold' };
+      if (listing.status === 'under-offer') return { cls: 'under-offer', label: 'Under Offer' };
       if (listing.type === 'sale-rent') return { cls: 'both', label: 'Sale / Rent' };
       if (listing.type === 'rent') return { cls: 'rent', label: 'For Rent' };
       if (listing.type === 'sale') return { cls: 'sale', label: 'For Sale' };
@@ -605,7 +607,7 @@
       let list = window.LISTINGS || [];
 
       if (!state.showUnavailable) {
-        list = list.filter((l) => l.status === 'available' || !l.status);
+        list = list.filter((l) => l.status === 'available' || l.status === 'under-offer' || !l.status);
       }
 
       if (state.type === 'sale') list = list.filter((l) => l.sale);
