@@ -178,6 +178,10 @@ export function renderPropertyPage(d) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${escHtml(d.title)} — Decle Realty</title>
   <meta name="description" content="${escAttr((d.blurb || d.title).slice(0, 160))}">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
   <link rel="stylesheet" href="../styles.css">
   ${jsonLd(d)}
   <style>
